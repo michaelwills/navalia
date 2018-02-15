@@ -12,6 +12,7 @@
     "clean": "rimraf build",
     "cover": "jest --coverage",
     "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/graphql/server.ts",
+    "debug-dev": "DEBUG=navalia* nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/graphql/server.ts",
     "docs": "cd docs && bundle exec jekyll serve",
     "precommit": "lint-staged",
     "prepublish": "npm run build",

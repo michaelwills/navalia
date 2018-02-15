@@ -258,6 +258,13 @@ export class Chrome extends EventEmitter {
             resolve(await this.evalNow(getPageURL));
           }
         });
+        return Promise.all([cdp.Page.enable(), cdp.Network.enable()])
+          .then(() => {
+            return cdp.Page.navigate({ url });
+          })
+          .catch(err => {
+            reject(`Failed: ${err} ${url} ${typeof url}`);
+          });
       });
     });
 
